@@ -47,17 +47,17 @@ Choose one of the installation methods:
 
 ```bash
 # macOS (Apple Silicon)
-curl -L https://github.com/Wangggym/quick-workflow/releases/latest/download/qk-darwin-arm64 -o qk
-chmod +x qk
-sudo mv qk /usr/local/bin/
+curl -L https://github.com/Wangggym/quick-workflow/releases/latest/download/qkflow-darwin-arm64 -o qkflow
+chmod +x qkflow
+sudo mv qkflow /usr/local/bin/
 
 # macOS (Intel)
-curl -L https://github.com/Wangggym/quick-workflow/releases/latest/download/qk-darwin-amd64 -o qk
-chmod +x qk
-sudo mv qk /usr/local/bin/
+curl -L https://github.com/Wangggym/quick-workflow/releases/latest/download/qkflow-darwin-amd64 -o qkflow
+chmod +x qkflow
+sudo mv qkflow /usr/local/bin/
 
 # Verify installation
-qk version
+qkflow version
 ```
 
 #### Option B: Build from Source
@@ -65,13 +65,13 @@ qk version
 ```bash
 cd /path/to/quick-workflow/go-version
 make build
-sudo cp bin/qk /usr/local/bin/
+sudo cp bin/qkflow /usr/local/bin/
 ```
 
 ### Step 3: Run Initial Setup
 
 ```bash
-qk init
+qkflow init
 ```
 
 This will prompt you for:
@@ -90,10 +90,10 @@ Create a test branch to verify everything works:
 ```bash
 # Test PR creation
 cd your-project
-git checkout -b test-qk-migration
+git checkout -b test-qkflow-migration
 echo "test" > test.txt
 git add test.txt
-qk pr create
+qkflow pr create
 
 # If successful, you'll see:
 # ✅ Branch created
@@ -120,14 +120,14 @@ alias prm='~/quick-workflow/pr-merge.sh'
 
 **New aliases (Go version):**
 ```bash
-alias prc='qk pr create'
-alias prm='qk pr merge'
+alias prc='qkflow pr create'
+alias prm='qkflow pr merge'
 ```
 
 Or simply use the shorter commands directly:
 ```bash
-qk pr create    # replaces pr-create.sh
-qk pr merge     # replaces pr-merge.sh
+qkflow pr create    # replaces pr-create.sh
+qkflow pr merge     # replaces pr-merge.sh
 ```
 
 ### Step 7: Clean Up Old Installation (Optional)
@@ -157,22 +157,22 @@ mv ~/quick-workflow ~/quick-workflow-shell-backup
 
 | Shell Version | Go Version | Notes |
 |--------------|------------|-------|
-| `pr-create.sh` | `qk pr create` | Same functionality, faster |
-| `pr-merge.sh` | `qk pr merge` | Same functionality, faster |
+| `pr-create.sh` | `qkflow pr create` | Same functionality, faster |
+| `pr-merge.sh` | `qkflow pr merge` | Same functionality, faster |
 | `qk.sh` | Coming soon | Log management features |
 | `qklogs.sh` | Coming soon | Will be integrated |
 | `qkfind.sh` | Coming soon | Will be integrated |
-| N/A | `qk init` | New: Setup wizard |
-| N/A | `qk config` | New: Show configuration |
-| N/A | `qk version` | New: Version info |
+| N/A | `qkflow init` | New: Setup wizard |
+| N/A | `qkflow config` | New: Show configuration |
+| N/A | `qkflow version` | New: Version info |
 
 ### Configuration
 
 | Shell Version | Go Version | Location |
 |--------------|------------|----------|
-| `.zshrc` env vars | YAML config | `~/.config/quick-workflow/config.yaml` |
+| `.zshrc` env vars | YAML config | `~/.qkflow/config.yaml` or iCloud Drive |
 | `jira-status.txt` | Automatic detection | Handled by API |
-| Manual setup | `qk init` | Interactive wizard |
+| Manual setup | `qkflow init` | Interactive wizard |
 
 ### Workflow Comparison
 
@@ -196,7 +196,7 @@ git add .
 git add .
 
 # 2. Run command
-qk pr create PROJ-123
+qkflow pr create PROJ-123
 
 # 3. Instant startup (<100ms)
 # 4. Answer prompts (same as before)
@@ -206,12 +206,12 @@ qk pr create PROJ-123
 
 ## 🐛 Troubleshooting
 
-### Issue: "Command not found: qk"
+### Issue: "Command not found: qkflow"
 
 **Solution:**
 ```bash
 # Check if binary is in PATH
-which qk
+which qkflow
 
 # If not found, ensure /usr/local/bin is in PATH
 echo $PATH
@@ -220,16 +220,16 @@ echo $PATH
 export PATH="/usr/local/bin:$PATH"
 ```
 
-### Issue: "Config not found" or "Please run qk init"
+### Issue: "Config not found" or "Please run qkflow init"
 
 **Solution:**
 ```bash
 # Run the setup wizard
-qk init
+qkflow init
 
 # Or manually create config
-mkdir -p ~/.config/quick-workflow
-cat > ~/.config/quick-workflow/config.yaml << EOF
+mkdir -p ~/.qkflow
+cat > ~/.qkflow/config.yaml << EOF
 email: your.email@example.com
 jira_api_token: your_token
 jira_service_address: https://your-domain.atlassian.net
@@ -248,8 +248,8 @@ gh auth status
 # If not, login
 gh auth login
 
-# Re-run qk init to get the token
-qk init
+# Re-run qkflow init to get the token
+qkflow init
 ```
 
 ### Issue: "Failed to get Jira issue"
@@ -291,17 +291,17 @@ Print this and keep it handy during migration:
 │         Quick Workflow Go Version               │
 ├─────────────────────────────────────────────────┤
 │ Setup                                           │
-│   qk init          Initialize configuration     │
-│   qk config        Show current config          │
+│   qkflow init          Initialize configuration │
+│   qkflow config        Show current config      │
 │                                                 │
 │ Pull Requests                                   │
-│   qk pr create     Create PR + update Jira      │
-│   qk pr merge      Merge PR + update Jira       │
+│   qkflow pr create     Create PR + update Jira  │
+│   qkflow pr merge      Merge PR + update Jira  │
 │                                                 │
 │ Help                                            │
-│   qk --help        Show all commands            │
-│   qk pr --help     Show PR commands             │
-│   qk version       Show version info            │
+│   qkflow --help        Show all commands        │
+│   qkflow pr --help     Show PR commands        │
+│   qkflow version       Show version info       │
 └─────────────────────────────────────────────────┘
 ```
 
@@ -311,7 +311,7 @@ Use this checklist to ensure a smooth migration:
 
 - [ ] Backed up current configuration
 - [ ] Installed Go version
-- [ ] Ran `qk init` and configured
+- [ ] Ran `qkflow init` and configured
 - [ ] Tested PR creation
 - [ ] Verified Jira integration works
 - [ ] Updated shell aliases (if any)
@@ -326,7 +326,7 @@ Use this checklist to ensure a smooth migration:
 If you encounter issues during migration:
 
 1. **Check this guide** - Most common issues are covered above
-2. **Check configuration** - Run `qk config` to verify settings
+2. **Check configuration** - Run `qkflow config` to verify settings
 3. **Enable debug mode** - Set `export QK_DEBUG=1` before running commands
 4. **Create an issue** - [Open a GitHub issue](https://github.com/Wangggym/quick-workflow/issues)
 5. **Ask for help** - Reach out to the maintainer
@@ -346,15 +346,15 @@ mv ~/quick-workflow-shell-backup ~/quick-workflow
 source ~/.zshrc
 
 # Remove Go version
-sudo rm /usr/local/bin/qk
+sudo rm /usr/local/bin/qkflow
 ```
 
 ## 🚀 Next Steps
 
 After successful migration:
 
-1. **Explore new features** - Try `qk --help` to see all commands
-2. **Customize configuration** - Edit `~/.config/quick-workflow/config.yaml`
+1. **Explore new features** - Try `qkflow --help` to see all commands
+2. **Customize configuration** - Edit `~/.qkflow/config.yaml` or check iCloud Drive location
 3. **Share with team** - Help teammates migrate
 4. **Provide feedback** - Let us know how we can improve
 

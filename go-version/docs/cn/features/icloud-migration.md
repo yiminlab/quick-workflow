@@ -175,9 +175,9 @@ ping icloud.com
 
 ## 📚 更多信息
 
-- [主 README](README.md)
-- [Jira 状态配置指南](JIRA_STATUS_CONFIG.md)
-- [快速开始](QUICKSTART.md)
+- [主 README](../../../README.md)
+- [Jira Integration Guide](jira-integration.md) - Jira 集成指南（包含状态配置）
+- [快速开始](../../../QUICKSTART.md)
 
 ## 💡 提示
 
@@ -188,4 +188,3 @@ ping icloud.com
 ---
 
 享受跨设备同步的便利吧！🎉
-

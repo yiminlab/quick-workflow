@@ -126,9 +126,9 @@ func TestSanitizeBranchName(t *testing.T) {
 ## 📚 Documentation
 
 - Update README.md for user-facing changes
-- Update MIGRATION.md for migration-related changes
+- Update docs/en/migration/migration.md and docs/cn/migration/migration.md for migration-related changes
 - Add godoc comments for exported types and functions
-- Update CHANGELOG.md (we'll add this)
+- Update CHANGELOG.md for all changes (follow [Keep a Changelog](https://keepachangelog.com/) format)
 
 ## 🐛 Bug Reports
 

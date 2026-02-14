@@ -7,7 +7,7 @@
 [![Build Status](https://img.shields.io/github/actions/workflow/status/Wangggym/quick-workflow/build.yml?branch=master&style=flat&logo=github-actions)](https://github.com/Wangggym/quick-workflow/actions)
 [![License](https://img.shields.io/badge/License-MIT-green.svg?style=flat)](LICENSE)
 [![Platform](https://img.shields.io/badge/Platform-macOS%20%7C%20Linux%20%7C%20Windows-lightgrey?style=flat)](https://github.com/Wangggym/quick-workflow)
-[![iCloud Sync](https://img.shields.io/badge/iCloud-Sync%20Enabled-blue?style=flat&logo=icloud)](ICLOUD_MIGRATION.md)
+[![iCloud Sync](https://img.shields.io/badge/iCloud-Sync%20Enabled-blue?style=flat&logo=icloud)](docs/en/features/icloud-migration.md)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](CONTRIBUTING.md)
 
 ## 🚀 What's New in Go Version
@@ -120,7 +120,7 @@ This will prompt you for:
 
 - **macOS with iCloud Drive**: Synced across devices ☁️
   - 📂 All configs in: `~/Library/Mobile Documents/com~apple~CloudDocs/.qkflow/`
-- **Local Storage** (fallback): 
+- **Local Storage** (fallback):
   - 📂 All configs in: `~/.qkflow/`
 
 Both locations contain:
@@ -129,7 +129,11 @@ Both locations contain:
 
 Run `qkflow config` to see your actual storage location.
 
-📖 See [iCloud Migration Guide](ICLOUD_MIGRATION.md) for more details.
+📖 See [iCloud Migration Guide](docs/en/features/icloud-migration.md) ([中文](docs/cn/features/icloud-migration.md)) for more details.
+
+> 📚 **Documentation**: All documentation is now organized in the [`docs/`](docs/) directory. See [Documentation Index](docs/README.md) for a complete list.
+>
+> 🚀 **Quick Start**: See [QUICKSTART.md](QUICKSTART.md) to get started in 5 minutes (English & 中文).
 
 ## 🎯 Usage
 
@@ -334,7 +338,7 @@ Cursor will automatically:
 2. ✅ Read exported files (including images)
 3. ✅ Provide comprehensive analysis
 
-📖 See [Jira Reader Guide](JIRA_READER.md) for detailed documentation.
+📖 See [Jira Integration Guide](docs/en/features/jira-integration.md) ([中文](docs/cn/features/jira-integration.md)) for detailed documentation.
 
 ### Watch Daemon (Auto-update Jira)
 
@@ -378,7 +382,7 @@ qkflow watch uninstall
 1. Run `qkflow jira setup` first to configure Jira status mappings
 2. Make sure "PR Merged" status is configured (default: "In Review")
 
-📖 See [Jira Status Config Guide](JIRA_STATUS_CONFIG.md) for setup details.
+📖 See [Jira Integration Guide](docs/en/features/jira-integration.md) ([中文](docs/cn/features/jira-integration.md)) for status configuration details.
 
 ### Other Commands
 
@@ -533,7 +537,7 @@ openai_key: sk-your_openai_key  # optional
 
 ## 🚧 Migration from Shell Version
 
-See [MIGRATION.md](MIGRATION.md) for detailed migration guide.
+See [Migration Guide](docs/en/migration/migration.md) ([中文](docs/cn/migration/migration.md)) for detailed migration guide.
 
 **Quick comparison:**
 
@@ -626,11 +630,7 @@ sudo mv /tmp/qkflow-new /usr/local/bin/qkflow
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines on how to contribute.
 
 ## 📄 License
 

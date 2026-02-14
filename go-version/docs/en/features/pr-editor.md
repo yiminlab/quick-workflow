@@ -1,5 +1,7 @@
 # PR Editor Feature - Implementation Summary
 
+> 📚 **Looking for the complete PR workflow?** See [PR Workflow Guide](pr-workflow.md) for the full lifecycle from creation to merge.
+
 ## 🎉 New Feature: Web-Based PR Description Editor
 
 Added a beautiful web-based editor for adding detailed descriptions and media (images/videos) to pull requests, with automatic upload to both GitHub and Jira.
@@ -53,9 +55,9 @@ Once you save in the editor:
 $ qkflow pr create NA-9245
 
 ✓ Found Jira issue: Fix login button styling
-📝 Select type(s) of changes: 
+📝 Select type(s) of changes:
   ✓ 🐛 Bug fix
-  
+
 ? Add detailed description with images/videos?
   > ⏭️  Skip (default)      # Just press Enter to skip
     ✅ Yes, continue        # Use arrow keys or space, then Enter to select
@@ -285,6 +287,35 @@ Potential improvements:
 - [ ] Manual testing with real PR
 - [ ] Cross-platform testing (macOS, Linux, Windows)
 
+## 🔄 Interaction Update (v1.4.0)
+
+### Improved User Experience
+
+The prompt for adding description/screenshots was improved from a simple Yes/No confirmation to a more intuitive selection interface.
+
+**Before:**
+```bash
+? Would you like to add detailed description with images/videos? (y/N): _
+```
+
+**After:**
+```bash
+? Add detailed description with images/videos?
+  > ⏭️  Skip (default)
+    ✅ Yes, continue
+```
+
+**Benefits:**
+- Faster workflow: Press Enter once to skip (no need to type 'n')
+- More intuitive: Visual selection with icons
+- Less error-prone: Clear indication of default option
+- Better discoverability: Icons make it more approachable
+
+**Technical Implementation:**
+- Added `PromptOptional()` function in `internal/ui/prompt.go`
+- Uses visual selection interface instead of y/n prompt
+- Default behavior preserved (skip by default)
+
 ## 📚 Documentation Updates Needed
 
 1. Update `README.md` with new feature
@@ -305,9 +336,10 @@ The web-based editor provides a familiar, user-friendly interface that encourage
 
 ---
 
-**Implementation Date**: 2024-11-18  
-**Version**: To be included in v1.4.0  
+**Implementation Date**: 2024-11-18
+**Version**: To be included in v1.4.0
 **Status**: ✅ Complete - Ready for Testing
 
 **Total Lines Added**: ~1,000 lines of code
 
+---

@@ -1,0 +1,373 @@
+# Quick Workflow (qkflow) - Cursor AI 规则
+
+## ⚠️ 重要提示
+
+**代码和文档生成规则**：
+- **如果没有明确说明，不需要生成代码和文档**
+- 只有在用户明确要求生成代码或文档时，才执行相应的操作
+- 对于分析、解释、讨论类的问题，仅提供文字回答，不要自动生成代码或文档文件
+- 如果用户只是询问问题或需要解释，不要主动创建文件或修改代码
+- **禁止性规则**：**在没有用户明确指示需要生成代码或文档的情况下，禁止通过 AI 自动生成任何代码文件或文档文件。仅提供分析、解释、建议等文字回答。**
+- **代码修改规则**：**禁止在没有用户明确同意或说明的情况下修改现有代码文件。如需修改代码，必须先获得用户同意或用户明确说明需要修改。**
+- **文档修改规则**：**禁止在没有用户明确同意或说明的情况下修改现有文档文件。如需修改文档，必须先获得用户同意或用户明确说明需要修改。**
+
+## 项目概述
+
+这是一个用 Go + Cobra 编写的 CLI 工具，名为 `qkflow`（Quick Workflow），用于自动化 GitHub 和 Jira 工作流，提供 PR 管理、Jira 集成、自动更新、监控守护进程等功能。
+
+## 架构设计
+
+项目采用三层架构：
+- **CLI 入口层** (`cmd/qkflow/`): 命令行入口点，包含 `main.go` 和命令定义
+- **命令封装层** (`cmd/qkflow/commands/`): Cobra 命令封装，处理用户交互和参数解析
+- **核心业务逻辑层** (`internal/`): 所有业务逻辑实现，包括 GitHub、Jira、Git、AI 等模块
+
+## 代码规范
+
+### Go 代码风格
+
+- **格式化**：使用 `gofmt` 或 `goimports` 格式化代码（运行 `make fix`）
+- **代码检查**：使用 `golangci-lint` 进行代码检查（运行 `make check`）
+- **命名约定**：
+  - 包名：小写字母，简短且有意义
+  - 导出符号：`PascalCase`
+  - 未导出符号：`camelCase`
+  - 常量：`PascalCase` 或 `UPPER_SNAKE_CASE`
+- **导入顺序**：标准库 → 第三方库 → 项目内部
+- **代码组织**：保持函数简洁，单一职责原则
+
+### 错误处理
+
+- 使用 `fmt.Errorf` 和 `%w` 包装错误，提供上下文信息
+- 所有可能失败的操作都应该返回错误
+- 错误信息应该清晰、可操作
+- 使用 `errors.Is` 和 `errors.As` 进行错误检查
+
+### 文档注释
+
+- 所有导出的函数、类型、变量必须有文档注释
+- 文档注释应该以被注释的名称开头
+- 包含参数说明、返回值说明、错误情况、使用示例（如适用）
+
+示例：
+```go
+// CreatePR creates a new pull request on GitHub.
+// It takes the PR title, description, and branch name as parameters.
+// Returns the created PR URL and any error encountered.
+func CreatePR(title, description, branch string) (string, error) {
+    // ...
+}
+```
+
+### 测试规范
+
+- 单元测试放在对应模块的 `*_test.go` 文件中
+- 使用表驱动测试（table-driven tests）处理多个测试用例
+- 测试函数命名：`TestFunctionName` 或 `TestFunctionName_Scenario`
+- 使用 `go test -v -race ./...` 运行测试（`make test`）
+- 目标覆盖率：关键业务逻辑 > 80%
+
+## 项目结构
+
+### 目录组织
+
+```
+go-version/
+├── cmd/qkflow/              # CLI 入口和命令定义
+│   ├── main.go             # 程序入口点
+│   └── commands/           # Cobra 命令定义
+│       ├── root.go         # 根命令
+│       ├── init.go         # 初始化命令
+│       ├── pr.go           # PR 相关命令
+│       ├── pr_create.go    # 创建 PR
+│       ├── pr_merge.go     # 合并 PR
+│       ├── pr_approve.go   # 批准 PR
+│       ├── jira.go         # Jira 相关命令
+│       ├── update.go       # 快速更新命令
+│       ├── watch.go        # 监控守护进程命令
+│       └── ...
+├── internal/               # 核心业务逻辑（内部包）
+│   ├── github/            # GitHub API 客户端
+│   ├── jira/              # Jira API 客户端和工具
+│   ├── git/               # Git 操作封装
+│   ├── ai/                # AI 客户端（DeepSeek/OpenAI）
+│   ├── ui/                # 用户界面（提示、颜色输出）
+│   ├── editor/            # Web 编辑器（PR 描述编辑）
+│   ├── updater/           # 自动更新功能
+│   ├── watcher/           # PR 监控守护进程
+│   └── utils/             # 工具函数
+├── pkg/                   # 公共包（可被外部使用）
+│   └── config/            # 配置管理
+├── docs/                  # 文档
+│   ├── en/                # 英文文档
+│   ├── cn/                # 中文文档
+│   └── README.md          # 文档索引
+├── scripts/               # 构建和发布脚本
+├── go.mod                 # Go 模块定义
+├── Makefile               # 构建脚本
+└── README.md              # 项目说明
+```
+
+### 核心模块
+
+项目包含以下核心模块：
+
+- **GitHub 模块** (`internal/github/`): GitHub API 客户端，处理 PR 创建、合并、批准等操作
+- **Jira 模块** (`internal/jira/`): Jira API 客户端，处理问题读取、状态更新、导出等功能
+- **Git 模块** (`internal/git/`): Git 操作封装，处理分支创建、提交、推送等
+- **AI 模块** (`internal/ai/`): AI 客户端，支持 DeepSeek 和 OpenAI，用于自动生成 PR 标题和描述
+- **UI 模块** (`internal/ui/`): 用户界面，提供交互式提示和彩色输出
+- **编辑器模块** (`internal/editor/`): Web 编辑器，用于创建富文本 PR 描述（支持图片/视频）
+- **更新器模块** (`internal/updater/`): 自动更新功能，检查并下载新版本
+- **监控器模块** (`internal/watcher/`): PR 监控守护进程，自动检测 PR 合并并更新 Jira
+- **配置模块** (`pkg/config/`): 配置管理，支持 iCloud 同步（macOS）
+
+## 文档文件管理
+
+**核心原则**：**所有生成的文档文件，根据文档类型自动归类到对应目录；如果无法确定类型，默认存放到 `docs/analysis/`。**
+
+**重要规则**：文档文件根据类型存放在对应目录，禁止在项目根目录或其他位置随意创建文档文件。
+
+**文档分类和存放位置**：
+
+1. **分析文档（默认）** → `docs/analysis/`
+   - **默认存放位置**：如果文档类型不明确或未指定，默认存放到 `docs/analysis/`
+   - 分析文档 → `docs/analysis/{TOPIC}.md`
+   - **适用场景**：需求分析、功能说明、实现计划、代码分析等未明确分类的文档
+   - **⚠️ 重要**：这是**临时分析文档**，不是参考文档，可以直接删除
+   - **索引规则**：**不需要任何索引**
+   - **注意**：如果目录不存在，需要先创建
+
+2. **功能文档** → `docs/en/features/` 和 `docs/cn/features/`
+   - 功能文档 → `docs/en/features/{FEATURE}.md` 和 `docs/cn/features/{FEATURE}.md`
+   - **识别关键词**：功能、特性、Feature、使用指南、用户指南
+   - **索引规则**：在 `docs/README.md` 中索引
+   - **注意**：功能文档需要同时提供英文和中文版本
+
+3. **开发文档** → `docs/en/development/` 和 `docs/cn/development/`
+   - 开发文档 → `docs/en/development/{TOPIC}.md` 和 `docs/cn/development/{TOPIC}.md`
+   - **识别关键词**：开发、Development、架构设计、API 文档、开发指南
+   - **索引规则**：在 `docs/README.md` 中索引
+
+4. **迁移文档** → `docs/en/migration/` 和 `docs/cn/migration/`
+   - 迁移文档 → `docs/en/migration/{TOPIC}.md` 和 `docs/cn/migration/{TOPIC}.md`
+   - **识别关键词**：迁移、Migration、版本升级、配置迁移
+   - **索引规则**：在 `docs/README.md` 中索引
+
+5. **发布文档** → `docs/en/release/` 和 `docs/cn/release/`
+   - 发布文档 → `docs/en/release/{TOPIC}.md` 和 `docs/cn/release/{TOPIC}.md`
+   - **识别关键词**：发布、Release、版本发布、更新日志
+   - **索引规则**：在 `docs/README.md` 中索引
+
+**文档存放决策流程**：
+
+1. 检查用户是否明确指定了文档类型或存放位置
+2. 如果指定了类型，根据上述分类规则自动归类
+3. 如果未指定类型，检查文档内容中的关键词
+4. 如果无法确定类型，默认存放到 `docs/analysis/`（如果目录不存在，需要先创建）
+
+**文档命名规范**：
+- 功能文档：`{FEATURE}.md`（如 `pr-workflow.md`）
+- 开发文档：`{TOPIC}.md`（如 `architecture.md`）
+- 迁移文档：`{TOPIC}.md`（如 `migration.md`）
+- 分析文档：`{TOPIC}.md` 或 `{TOPIC}_ANALYSIS.md`
+
+**文档索引规则**：
+- **禁止索引**：`docs/analysis/` 目录下的文档**绝对不应该**被索引到 `docs/README.md` 中
+- 这个目录包含**临时分析文档**，不是参考文档，不需要在文档索引中展示
+- **参考文档**：`docs/en/` 和 `docs/cn/` 目录下的文档是参考文档，应该被索引到 `docs/README.md` 中
+
+**README.md 索引文档规则**：
+- `docs/README.md` 是文档索引，用于索引所有参考文档
+- 列出所有功能文档、开发文档、迁移文档、发布文档
+- 提供中英文文档的链接
+
+**文档删除规则**：
+- **临时文档（可直接删除）**：
+  - `docs/analysis/` 目录下的所有文档都是临时分析文档，可以随时删除
+- **参考文档（删除需谨慎）**：
+  - `docs/en/` 和 `docs/cn/` 目录下的文档是**参考文档**，删除需要非常注意
+
+## 开发指南
+
+### 添加新功能
+
+1. 在 `internal/` 中实现核心业务逻辑
+2. 在 `cmd/qkflow/commands/` 中添加 Cobra 命令封装
+3. 在 `cmd/qkflow/commands/root.go` 中注册命令
+4. 添加测试用例（参考测试规范）
+5. 更新文档（如适用）
+
+### Git 工作流和提交规范
+
+遵循 [Conventional Commits](https://www.conventionalcommits.org/) 格式：
+
+- **分支策略**：使用 `feature/*`、`fix/*`、`hotfix/*` 分支
+- **提交格式**：`<type>(<scope>): <subject>`
+- **提交类型**：
+  - `feat`: 新功能
+  - `fix`: 修复 bug
+  - `docs`: 文档更改
+  - `style`: 代码格式（不影响代码运行）
+  - `refactor`: 重构代码
+  - `test`: 添加或更新测试
+  - `chore`: 构建过程或辅助工具的变动
+  - `perf`: 性能优化
+  - `ci`: CI 配置更改
+
+**提交信息要求**：
+- 主题行不超过 50 个字符
+- 使用祈使语气（如 "Add feature" 而不是 "Added feature"）
+- 首字母小写（除非是专有名词）
+- 不包含句号
+
+示例：
+```
+feat(pr): add support for PR approval
+fix(jira): handle empty ticket gracefully
+docs: update installation instructions
+test(github): add tests for PR creation
+```
+
+### 测试规范
+
+- 单元测试放在对应模块的 `*_test.go` 文件中
+- 使用 `make test` 运行测试
+- 使用 `make test-cov` 生成覆盖率报告
+- 目标覆盖率：> 80%，关键业务逻辑：> 90%
+- 使用表驱动测试处理多个测试用例
+- Mock 外部依赖（GitHub API、Jira API）
+
+### 代码审查
+
+提交 PR 前，确保：
+- [ ] 代码已格式化（`make fix`）
+- [ ] 通过代码检查（`make check`）
+- [ ] 所有测试通过（`make test`）
+- [ ] 添加了必要的文档注释
+- [ ] 遵循了错误处理规范
+- [ ] 提交信息符合 Conventional Commits 格式
+- [ ] PR 描述清晰说明了更改内容
+
+### 依赖管理
+
+- 使用 `go get <package-name>` 添加依赖
+- 运行 `make gen` 初始化和管理依赖
+- 优先使用稳定版本的包
+- 避免不必要的依赖
+- 添加新依赖前，考虑是否真的需要、是否有更轻量的替代方案
+- 定期运行 `go mod tidy` 清理未使用的依赖
+
+### 开发工具
+
+**必需工具**：
+- Go 1.21 或更高版本
+- Make（用于运行构建脚本）
+- golangci-lint（用于代码检查，可选但推荐）
+
+**常用命令**：
+```bash
+# 初始化依赖
+make gen
+
+# 格式化和修复代码
+make fix
+
+# 代码检查
+make check
+
+# 开发模式（快速运行）
+make dev ARGS="pr create"
+
+# 运行测试
+make test
+
+# 生成覆盖率报告
+make test-cov
+
+# 构建二进制文件
+make build
+
+# 构建所有平台
+make build-all
+
+# 快速构建并安装
+make local
+
+# 清理构建产物
+make clean
+```
+
+## 注意事项
+
+1. **跨平台支持**：项目支持 macOS、Linux、Windows，注意平台特定代码
+   - macOS: 支持 iCloud 同步、launchd 守护进程
+   - Linux: 基本功能支持
+   - Windows: 基本功能支持（部分功能可能受限）
+
+2. **配置文件**：
+   - macOS（iCloud）: `~/Library/Mobile Documents/com~apple~CloudDocs/.qkflow/`
+   - 本地存储: `~/.qkflow/`
+   - Windows: `%APPDATA%\qkflow\`
+   - 配置文件：`config.yaml` 和 `jira-status.json`
+
+3. **错误处理**：所有错误都应该提供清晰的错误消息和上下文
+
+4. **日志**：使用适当的日志级别，关键操作应该有日志记录
+
+5. **安全性**：
+   - 配置文件权限设置为 `0600`（仅用户读写）
+   - 不在代码中硬编码敏感信息（token、密码等）
+   - 支持环境变量覆盖配置
+
+6. **性能**：
+   - 启动时间应 < 100ms
+   - API 调用应该有超时设置
+   - 使用缓存减少重复 API 调用（如 Jira 状态缓存）
+
+## 代码生成建议
+
+**重要**：只有在用户明确要求生成代码时，才执行代码生成操作。
+
+生成代码时必须严格遵循上述所有开发规范，包括：
+
+- **代码风格**：遵循项目的命名约定和代码风格，使用 `make fix` 格式化，通过 `make check` 检查
+- **错误处理**：使用 `fmt.Errorf` 和 `%w` 包装错误，提供上下文，考虑所有错误情况
+- **文档注释**：为新功能添加完整的文档注释（包含参数、返回值、错误、示例）
+- **模块组织**：遵循三层架构，正确组织模块和依赖关系
+- **测试**：为新功能添加单元测试（使用表驱动测试）
+- **提交规范**：如果涉及 Git 提交，遵循 Conventional Commits 格式
+- **代码质量**：保持代码简洁和可读性，遵循 Go 最佳实践（如使用 `error` 类型、避免 `panic` 等）
+- **代码审查**：确保代码符合审查清单要求
+
+## 特殊功能说明
+
+### PR 编辑器
+
+- Web 编辑器用于创建富文本 PR 描述
+- 支持拖拽上传图片/视频
+- 支持剪贴板粘贴图片
+- 自动上传到 GitHub 和 Jira
+- 临时文件会自动清理
+
+### Watch Daemon
+
+- 监控用户的 PR，每 15 分钟检查一次（8:30-24:00）
+- 夜间模式：仅在 2:00 和 6:00 检查
+- 自动更新 Jira 状态当 PR 合并时
+- macOS 支持桌面通知和自动启动（launchd）
+
+### iCloud 同步
+
+- macOS 专用功能
+- 配置文件自动同步到 iCloud Drive
+- 跨设备无缝体验
+- 如果 iCloud 不可用，回退到本地存储
+
+### AI 集成
+
+- 支持 DeepSeek 和 OpenAI
+- DeepSeek 优先，OpenAI 作为备用
+- 用于自动生成 PR 标题和描述
+- 支持代理 URL 配置
+
