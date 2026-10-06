@@ -7,7 +7,7 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/Wangggym/quick-workflow/internal/utils"
+	"github.com/yiminlab/quick-workflow/internal/utils"
 )
 
 // ProcessedPR represents a processed pull request

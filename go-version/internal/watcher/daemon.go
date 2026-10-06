@@ -8,9 +8,9 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/Wangggym/quick-workflow/internal/github"
-	"github.com/Wangggym/quick-workflow/internal/jira"
-	"github.com/Wangggym/quick-workflow/pkg/config"
+	"github.com/yiminlab/quick-workflow/internal/github"
+	"github.com/yiminlab/quick-workflow/internal/jira"
+	"github.com/yiminlab/quick-workflow/pkg/config"
 )
 
 // Daemon represents the watch daemon

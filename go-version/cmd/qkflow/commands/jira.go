@@ -3,9 +3,9 @@ package commands
 import (
 	"fmt"
 
-	"github.com/Wangggym/quick-workflow/internal/jira"
-	"github.com/Wangggym/quick-workflow/internal/ui"
 	"github.com/spf13/cobra"
+	"github.com/yiminlab/quick-workflow/internal/jira"
+	"github.com/yiminlab/quick-workflow/internal/ui"
 )
 
 var jiraCmd = &cobra.Command{

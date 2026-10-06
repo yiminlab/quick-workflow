@@ -4,7 +4,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/Wangggym/quick-workflow/internal/github"
+	"github.com/yiminlab/quick-workflow/internal/github"
 )
 
 // MergedPR represents a merged pull request with Jira tickets

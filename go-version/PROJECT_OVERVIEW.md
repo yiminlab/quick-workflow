@@ -277,7 +277,7 @@ MIT License - See LICENSE file for details.
 ## 🙏 Credits
 
 ### Original Project
-- Shell version by [Wangggym](https://github.com/Wangggym)
+- Shell version by [yiminlab](https://github.com/yiminlab)
 
 ### Go Version
 - Architecture and implementation: AI-assisted development
@@ -310,6 +310,6 @@ The project is ready for production use and welcomes community contributions!
 ---
 
 **Last Updated**: 2025-11-04  
-**Maintainer**: Wangggym  
-**Repository**: https://github.com/Wangggym/quick-workflow
+**Maintainer**: yiminlab\
+**Repository**: https://github.com/yiminlab/quick-workflow
 

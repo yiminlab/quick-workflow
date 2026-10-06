@@ -8,8 +8,8 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/Wangggym/quick-workflow/internal/github"
-	"github.com/Wangggym/quick-workflow/internal/jira"
+	"github.com/yiminlab/quick-workflow/internal/github"
+	"github.com/yiminlab/quick-workflow/internal/jira"
 )
 
 // UploadResult contains the uploaded file URLs

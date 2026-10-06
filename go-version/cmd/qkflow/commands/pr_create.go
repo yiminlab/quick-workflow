@@ -7,14 +7,14 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Wangggym/quick-workflow/internal/ai"
-	"github.com/Wangggym/quick-workflow/internal/git"
-	"github.com/Wangggym/quick-workflow/internal/github"
-	"github.com/Wangggym/quick-workflow/internal/jira"
-	"github.com/Wangggym/quick-workflow/internal/ui"
-	"github.com/Wangggym/quick-workflow/internal/watcher"
-	"github.com/Wangggym/quick-workflow/pkg/config"
 	"github.com/spf13/cobra"
+	"github.com/yiminlab/quick-workflow/internal/ai"
+	"github.com/yiminlab/quick-workflow/internal/git"
+	"github.com/yiminlab/quick-workflow/internal/github"
+	"github.com/yiminlab/quick-workflow/internal/jira"
+	"github.com/yiminlab/quick-workflow/internal/ui"
+	"github.com/yiminlab/quick-workflow/internal/watcher"
+	"github.com/yiminlab/quick-workflow/pkg/config"
 )
 
 var (

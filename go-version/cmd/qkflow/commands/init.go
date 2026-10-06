@@ -5,10 +5,10 @@ import (
 	"os/exec"
 	"strings"
 
-	"github.com/Wangggym/quick-workflow/internal/ui"
-	"github.com/Wangggym/quick-workflow/internal/utils"
-	"github.com/Wangggym/quick-workflow/pkg/config"
 	"github.com/spf13/cobra"
+	"github.com/yiminlab/quick-workflow/internal/ui"
+	"github.com/yiminlab/quick-workflow/internal/utils"
+	"github.com/yiminlab/quick-workflow/pkg/config"
 )
 
 var initCmd = &cobra.Command{

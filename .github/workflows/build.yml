@@ -63,7 +63,7 @@ jobs:
           BUILD_TIME: ${{ steps.version.outputs.BUILD_TIME }}
         run: |
           mkdir -p bin
-          LDFLAGS="-X github.com/Wangggym/quick-workflow/cmd/qkflow/commands.Version=${VERSION} -X github.com/Wangggym/quick-workflow/cmd/qkflow/commands.BuildTime=${BUILD_TIME}"
+          LDFLAGS="-X main.Version=${VERSION} -X main.BuildTime=${BUILD_TIME}"
           
           GOOS=darwin GOARCH=amd64 go build -ldflags="${LDFLAGS}" -o bin/qkflow-darwin-amd64 ./cmd/qkflow
           GOOS=darwin GOARCH=arm64 go build -ldflags="${LDFLAGS}" -o bin/qkflow-darwin-arm64 ./cmd/qkflow

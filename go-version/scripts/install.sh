@@ -55,7 +55,7 @@ echo "Detected platform: ${PLATFORM}-${ARCH}"
 echo ""
 
 # GitHub repository
-REPO="Wangggym/quick-workflow"
+REPO="yiminlab/quick-workflow"
 BINARY_NAME="qkflow"
 
 if [ "$PLATFORM" = "windows" ]; then

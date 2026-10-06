@@ -53,7 +53,7 @@ git push origin v1.0.0
 
 1. 访问 GitHub Releases 页面：
    ```
-   https://github.com/Wangggym/quick-workflow/releases
+   https://github.com/yiminlab/quick-workflow/releases
    ```
 
 2. 确认以下内容：
@@ -65,7 +65,7 @@ git push origin v1.0.0
 3. 本地测试下载的二进制：
    ```bash
    # 下载并测试
-   curl -L https://github.com/Wangggym/quick-workflow/releases/download/v1.0.0/qkflow-darwin-arm64 -o qkflow
+   curl -L https://github.com/yiminlab/quick-workflow/releases/download/v1.0.0/qkflow-darwin-arm64 -o qkflow
    chmod +x qkflow
    ./qkflow version
    ```
@@ -140,7 +140,7 @@ make build-all
 ls -lh bin/
 
 # 3. 在 GitHub 网页创建 Release
-# - 访问: https://github.com/Wangggym/quick-workflow/releases/new
+# - 访问: https://github.com/yiminlab/quick-workflow/releases/new
 # - 选择 tag: v1.0.0
 # - 填写标题和描述
 # - 上传 bin/ 目录下的所有文件
@@ -153,7 +153,7 @@ ls -lh bin/
 
 1. 访问 Actions 页面：
    ```
-   https://github.com/Wangggym/quick-workflow/actions
+   https://github.com/yiminlab/quick-workflow/actions
    ```
 
 2. 查看构建日志：

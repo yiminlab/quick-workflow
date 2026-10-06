@@ -6,21 +6,21 @@ Get up and running with Quick Workflow Go version in 5 minutes!
 
 ### macOS (Apple Silicon)
 ```bash
-curl -L https://github.com/Wangggym/quick-workflow/releases/latest/download/qk-darwin-arm64 -o qk && \
+curl -L https://github.com/yiminlab/quick-workflow/releases/latest/download/qk-darwin-arm64 -o qk && \
 chmod +x qk && \
 sudo mv qk /usr/local/bin/
 ```
 
 ### macOS (Intel)
 ```bash
-curl -L https://github.com/Wangggym/quick-workflow/releases/latest/download/qk-darwin-amd64 -o qk && \
+curl -L https://github.com/yiminlab/quick-workflow/releases/latest/download/qk-darwin-amd64 -o qk && \
 chmod +x qk && \
 sudo mv qk /usr/local/bin/
 ```
 
 ### Linux
 ```bash
-curl -L https://github.com/Wangggym/quick-workflow/releases/latest/download/qk-linux-amd64 -o qk && \
+curl -L https://github.com/yiminlab/quick-workflow/releases/latest/download/qk-linux-amd64 -o qk && \
 chmod +x qk && \
 sudo mv qk /usr/local/bin/
 ```
@@ -213,7 +213,7 @@ curl -u "your.email@example.com:your_jira_token" \
 
 - **Full Documentation**: [README.md](README.md)
 - **Migration Guide**: [MIGRATION.md](MIGRATION.md)
-- **GitHub Issues**: [Report bugs or request features](https://github.com/Wangggym/quick-workflow/issues)
+- **GitHub Issues**: [Report bugs or request features](https://github.com/yiminlab/quick-workflow/issues)
 
 ## 🎉 You're Ready!
 

@@ -1,4 +1,4 @@
-module github.com/Wangggym/quick-workflow
+module github.com/yiminlab/quick-workflow
 
 go 1.21
 

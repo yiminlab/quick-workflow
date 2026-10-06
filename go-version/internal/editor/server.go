@@ -13,7 +13,7 @@ import (
 	"runtime"
 	"time"
 
-	"github.com/Wangggym/quick-workflow/internal/ui"
+	"github.com/yiminlab/quick-workflow/internal/ui"
 )
 
 // EditorResult contains the markdown content and uploaded files
