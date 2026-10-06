@@ -78,7 +78,9 @@ qkflow version
 ### Option 2: Install with Go
 
 ```bash
-go install github.com/yiminlab/quick-workflow/cmd/qkflow@latest
+git clone https://github.com/yiminlab/quick-workflow.git
+cd quick-workflow/go-version
+go install ./cmd/qkflow
 ```
 
 ### Option 3: Build from Source
