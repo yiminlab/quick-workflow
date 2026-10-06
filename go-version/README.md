@@ -3,10 +3,10 @@
 > A modern, blazing-fast CLI tool for streamlined GitHub and Jira workflows
 
 [![Go Version](https://img.shields.io/badge/Go-1.21+-00ADD8?style=flat&logo=go)](https://go.dev/)
-[![Release](https://img.shields.io/github/v/release/Wangggym/quick-workflow?style=flat&logo=github)](https://github.com/Wangggym/quick-workflow/releases)
-[![Build Status](https://img.shields.io/github/actions/workflow/status/Wangggym/quick-workflow/build.yml?branch=master&style=flat&logo=github-actions)](https://github.com/Wangggym/quick-workflow/actions)
+[![Release](https://img.shields.io/github/v/release/yiminlab/quick-workflow?style=flat&logo=github)](https://github.com/yiminlab/quick-workflow/releases)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/yiminlab/quick-workflow/build.yml?branch=master&style=flat&logo=github-actions)](https://github.com/yiminlab/quick-workflow/actions)
 [![License](https://img.shields.io/badge/License-MIT-green.svg?style=flat)](LICENSE)
-[![Platform](https://img.shields.io/badge/Platform-macOS%20%7C%20Linux%20%7C%20Windows-lightgrey?style=flat)](https://github.com/Wangggym/quick-workflow)
+[![Platform](https://img.shields.io/badge/Platform-macOS%20%7C%20Linux%20%7C%20Windows-lightgrey?style=flat)](https://github.com/yiminlab/quick-workflow)
 [![iCloud Sync](https://img.shields.io/badge/iCloud-Sync%20Enabled-blue?style=flat&logo=icloud)](ICLOUD_MIGRATION.md)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](CONTRIBUTING.md)
 
@@ -44,10 +44,10 @@ This is a complete rewrite of the original Shell-based quick-workflow tool in Go
 
 ```bash
 # macOS (Apple Silicon - M1/M2/M3)
-curl -L https://github.com/Wangggym/quick-workflow/releases/latest/download/qkflow-darwin-arm64 -o qkflow
+curl -L https://github.com/yiminlab/quick-workflow/releases/latest/download/qkflow-darwin-arm64 -o qkflow
 
 # macOS (Intel)
-curl -L https://github.com/Wangggym/quick-workflow/releases/latest/download/qkflow-darwin-amd64 -o qkflow
+curl -L https://github.com/yiminlab/quick-workflow/releases/latest/download/qkflow-darwin-amd64 -o qkflow
 
 # 🔑 Important: Remove macOS quarantine attribute to bypass Gatekeeper (if needed)
 # Note: If you get "No such xattr: com.apple.quarantine", that's fine - skip this step
@@ -67,7 +67,7 @@ qkflow version
 
 ```bash
 # Linux (x86_64)
-curl -L https://github.com/Wangggym/quick-workflow/releases/latest/download/qkflow-linux-amd64 -o qkflow
+curl -L https://github.com/yiminlab/quick-workflow/releases/latest/download/qkflow-linux-amd64 -o qkflow
 chmod +x qkflow
 sudo mv qkflow /usr/local/bin/
 
@@ -78,13 +78,15 @@ qkflow version
 ### Option 2: Install with Go
 
 ```bash
-go install github.com/Wangggym/quick-workflow/cmd/qkflow@latest
+git clone https://github.com/yiminlab/quick-workflow.git
+cd quick-workflow/go-version
+go install ./cmd/qkflow
 ```
 
 ### Option 3: Build from Source
 
 ```bash
-git clone https://github.com/Wangggym/quick-workflow.git
+git clone https://github.com/yiminlab/quick-workflow.git
 cd quick-workflow/go-version
 make build
 sudo cp bin/qkflow /usr/local/bin/
@@ -616,7 +618,7 @@ source ~/.zshrc  # or ~/.bash_profile
 qkflow version
 
 # Manual update (download latest binary and replace)
-curl -L https://github.com/Wangggym/quick-workflow/releases/latest/download/qkflow-darwin-arm64 -o /tmp/qkflow-new
+curl -L https://github.com/yiminlab/quick-workflow/releases/latest/download/qkflow-darwin-arm64 -o /tmp/qkflow-new
 xattr -d com.apple.quarantine /tmp/qkflow-new
 chmod +x /tmp/qkflow-new
 sudo mv /tmp/qkflow-new /usr/local/bin/qkflow
@@ -638,7 +640,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-- Original Shell version: [quick-workflow](https://github.com/Wangggym/quick-workflow)
+- Original Shell version: [quick-workflow](https://github.com/yiminlab/quick-workflow)
 - [Cobra](https://github.com/spf13/cobra) - CLI framework
 - [Survey](https://github.com/AlecAivazis/survey) - Interactive prompts
 - [go-github](https://github.com/google/go-github) - GitHub API client
@@ -646,11 +648,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Support
 
-- 🐛 [Report a bug](https://github.com/Wangggym/quick-workflow/issues/new?labels=bug)
-- 💡 [Request a feature](https://github.com/Wangggym/quick-workflow/issues/new?labels=enhancement)
-- 📖 [Documentation](https://github.com/Wangggym/quick-workflow/wiki)
+- 🐛 [Report a bug](https://github.com/yiminlab/quick-workflow/issues/new?labels=bug)
+- 💡 [Request a feature](https://github.com/yiminlab/quick-workflow/issues/new?labels=enhancement)
+- 📖 [Documentation](https://github.com/yiminlab/quick-workflow/wiki)
 
 ---
 
-Made with ❤️ by [Wangggym](https://github.com/Wangggym)
+Made with ❤️ by [yiminlab](https://github.com/yiminlab)
 

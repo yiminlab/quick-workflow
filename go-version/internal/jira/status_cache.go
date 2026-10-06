@@ -6,7 +6,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/Wangggym/quick-workflow/internal/utils"
+	"github.com/yiminlab/quick-workflow/internal/utils"
 )
 
 // StatusCache holds Jira status mappings for different projects

@@ -11,12 +11,12 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Wangggym/quick-workflow/internal/ui"
-	"github.com/Wangggym/quick-workflow/pkg/config"
+	"github.com/yiminlab/quick-workflow/internal/ui"
+	"github.com/yiminlab/quick-workflow/pkg/config"
 )
 
 const (
-	githubAPIURL     = "https://api.github.com/repos/Wangggym/quick-workflow/releases/latest"
+	githubAPIURL     = "https://api.github.com/repos/yiminlab/quick-workflow/releases/latest"
 	updateCheckFile  = ".last_update_check"
 	checkInterval    = 24 * time.Hour // Check once per day
 )
@@ -54,7 +54,7 @@ func CheckAndUpdate(currentVersion string, autoUpdate bool) error {
 	ui.Info(fmt.Sprintf("🎉 New version available: %s (current: %s)", latestVersion, currentVersion))
 
 	if !autoUpdate {
-		ui.Info(fmt.Sprintf("Run 'qkflow update-cli' to update, or visit: https://github.com/Wangggym/quick-workflow/releases"))
+		ui.Info(fmt.Sprintf("Run 'qkflow update-cli' to update, or visit: https://github.com/yiminlab/quick-workflow/releases"))
 		return nil
 	}
 
@@ -62,7 +62,7 @@ func CheckAndUpdate(currentVersion string, autoUpdate bool) error {
 	ui.Info("⬇️  Downloading update...")
 	if err := downloadAndInstall(downloadURL); err != nil {
 		ui.Error(fmt.Sprintf("Failed to auto-update: %v", err))
-		ui.Info("Please update manually: https://github.com/Wangggym/quick-workflow/releases")
+		ui.Info("Please update manually: https://github.com/yiminlab/quick-workflow/releases")
 		return nil
 	}
 

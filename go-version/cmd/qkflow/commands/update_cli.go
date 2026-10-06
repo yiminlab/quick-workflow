@@ -1,8 +1,8 @@
 package commands
 
 import (
-	"github.com/Wangggym/quick-workflow/internal/updater"
 	"github.com/spf13/cobra"
+	"github.com/yiminlab/quick-workflow/internal/updater"
 )
 
 var updateCLICmd = &cobra.Command{

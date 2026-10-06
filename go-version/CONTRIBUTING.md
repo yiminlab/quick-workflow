@@ -27,7 +27,7 @@ Thank you for your interest in contributing to Quick Workflow! 🎉
 
 ```bash
 # Clone the repository
-git clone https://github.com/Wangggym/quick-workflow.git
+git clone https://github.com/yiminlab/quick-workflow.git
 cd quick-workflow/go-version
 
 # Install dependencies

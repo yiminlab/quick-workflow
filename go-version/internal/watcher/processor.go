@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/Wangggym/quick-workflow/internal/jira"
+	"github.com/yiminlab/quick-workflow/internal/jira"
 )
 
 // Processor handles PR processing and Jira updates

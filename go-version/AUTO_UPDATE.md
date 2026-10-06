@@ -45,7 +45,7 @@ qkflow 内置了智能的自动更新功能，可以确保你始终使用最新�
 
 ```bash
 🎉 New version available: v1.1.0 (current: v1.0.0)
-Run 'qkflow update-cli' to update, or visit: https://github.com/Wangggym/quick-workflow/releases
+Run 'qkflow update-cli' to update, or visit: https://github.com/yiminlab/quick-workflow/releases
 ```
 
 ## 配置自动更新
@@ -138,7 +138,7 @@ rm ~/.qkflow/.last_update_check
 ### 下载来源
 
 - 所有二进制文件从 GitHub Releases 官方下载
-- URL: `https://api.github.com/repos/Wangggym/quick-workflow/releases/latest`
+- URL: `https://api.github.com/repos/yiminlab/quick-workflow/releases/latest`
 - 使用 HTTPS 加密传输
 
 ### 更新流程
@@ -189,7 +189,7 @@ export AUTO_UPDATE=false
 
 ### Q: 能否回滚到旧版本？
 
-可以。访问 [GitHub Releases](https://github.com/Wangggym/quick-workflow/releases) 下载特定版本的二进制文件，手动替换即可。
+可以。访问 [GitHub Releases](https://github.com/yiminlab/quick-workflow/releases) 下载特定版本的二进制文件，手动替换即可。
 
 ### Q: 自动更新失败会显示错误吗？
 
@@ -219,14 +219,14 @@ A: 不会。为了不影响用户体验，更新失败时静默处理。可以�
 
 查看完整的更新历史和版本说明：
 
-👉 [GitHub Releases](https://github.com/Wangggym/quick-workflow/releases)
+👉 [GitHub Releases](https://github.com/yiminlab/quick-workflow/releases)
 
 ## 反馈
 
 如果在使用自动更新功能时遇到问题，请：
 
-- 🐛 [报告 Bug](https://github.com/Wangggym/quick-workflow/issues/new?labels=bug)
-- 💡 [提出建议](https://github.com/Wangggym/quick-workflow/issues/new?labels=enhancement)
+- 🐛 [报告 Bug](https://github.com/yiminlab/quick-workflow/issues/new?labels=bug)
+- 💡 [提出建议](https://github.com/yiminlab/quick-workflow/issues/new?labels=enhancement)
 
 ---
 

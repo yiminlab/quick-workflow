@@ -31,10 +31,10 @@ A modern CLI tool to automate your daily GitHub PR and Jira workflow, written in
 - **Auto Update**: Automatically check and install updates (configurable) 🔄
 
 [![Go Version](https://img.shields.io/badge/Go-1.21+-00ADD8?style=flat&logo=go)](https://go.dev/)
-[![Release](https://img.shields.io/github/v/release/Wangggym/quick-workflow?style=flat&logo=github)](https://github.com/Wangggym/quick-workflow/releases)
-[![Build Status](https://img.shields.io/github/actions/workflow/status/Wangggym/quick-workflow/build.yml?branch=master&style=flat&logo=github-actions)](https://github.com/Wangggym/quick-workflow/actions)
+[![Release](https://img.shields.io/github/v/release/yiminlab/quick-workflow?style=flat&logo=github)](https://github.com/yiminlab/quick-workflow/releases)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/yiminlab/quick-workflow/build.yml?branch=master&style=flat&logo=github-actions)](https://github.com/yiminlab/quick-workflow/actions)
 [![License](https://img.shields.io/badge/License-MIT-green.svg?style=flat)](LICENSE)
-[![Platform](https://img.shields.io/badge/Platform-macOS%20%7C%20Linux%20%7C%20Windows-lightgrey?style=flat)](https://github.com/Wangggym/quick-workflow)
+[![Platform](https://img.shields.io/badge/Platform-macOS%20%7C%20Linux%20%7C%20Windows-lightgrey?style=flat)](https://github.com/yiminlab/quick-workflow)
 [![iCloud Sync](https://img.shields.io/badge/iCloud-Sync%20Enabled-blue?style=flat&logo=icloud)](go-version/ICLOUD_MIGRATION.md)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](go-version/CONTRIBUTING.md)
 
@@ -44,29 +44,29 @@ A modern CLI tool to automate your daily GitHub PR and Jira workflow, written in
 
 ```bash
 # macOS (Apple Silicon)
-curl -L https://github.com/Wangggym/quick-workflow/releases/latest/download/qkflow-darwin-arm64 -o qkflow
+curl -L https://github.com/yiminlab/quick-workflow/releases/latest/download/qkflow-darwin-arm64 -o qkflow
 chmod +x qkflow
 sudo mv qkflow /usr/local/bin/
 
 # macOS (Intel)
-curl -L https://github.com/Wangggym/quick-workflow/releases/latest/download/qkflow-darwin-amd64 -o qkflow
+curl -L https://github.com/yiminlab/quick-workflow/releases/latest/download/qkflow-darwin-amd64 -o qkflow
 chmod +x qkflow
 sudo mv qkflow /usr/local/bin/
 
 # Linux
-curl -L https://github.com/Wangggym/quick-workflow/releases/latest/download/qkflow-linux-amd64 -o qkflow
+curl -L https://github.com/yiminlab/quick-workflow/releases/latest/download/qkflow-linux-amd64 -o qkflow
 chmod +x qkflow
 sudo mv qkflow /usr/local/bin/
 
 # Windows (PowerShell)
-Invoke-WebRequest -Uri https://github.com/Wangggym/quick-workflow/releases/latest/download/qkflow-windows-amd64.exe -OutFile qkflow.exe
+Invoke-WebRequest -Uri https://github.com/yiminlab/quick-workflow/releases/latest/download/qkflow-windows-amd64.exe -OutFile qkflow.exe
 # Move qkflow.exe to a directory in your PATH
 ```
 
 ### Build from Source
 
 ```bash
-git clone https://github.com/Wangggym/quick-workflow.git
+git clone https://github.com/yiminlab/quick-workflow.git
 cd quick-workflow/go-version
 make gen      # Initialize dependencies
 make build    # Build binary
@@ -320,12 +320,12 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Support
 
-- 🐛 [Report a bug](https://github.com/Wangggym/quick-workflow/issues/new?labels=bug)
-- 💡 [Request a feature](https://github.com/Wangggym/quick-workflow/issues/new?labels=enhancement)
-- 📖 [View Documentation](https://github.com/Wangggym/quick-workflow)
+- 🐛 [Report a bug](https://github.com/yiminlab/quick-workflow/issues/new?labels=bug)
+- 💡 [Request a feature](https://github.com/yiminlab/quick-workflow/issues/new?labels=enhancement)
+- 📖 [View Documentation](https://github.com/yiminlab/quick-workflow)
 
 ---
 
-**Made with ❤️ by [@Wangggym](https://github.com/Wangggym)**
+**Made with ❤️ by [@yiminlab](https://github.com/yiminlab)**
 
 ⭐ **Star this repo if you find it useful!**

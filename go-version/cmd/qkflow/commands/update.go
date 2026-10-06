@@ -3,10 +3,10 @@ package commands
 import (
 	"fmt"
 
-	"github.com/Wangggym/quick-workflow/internal/git"
-	"github.com/Wangggym/quick-workflow/internal/github"
-	"github.com/Wangggym/quick-workflow/internal/ui"
 	"github.com/spf13/cobra"
+	"github.com/yiminlab/quick-workflow/internal/git"
+	"github.com/yiminlab/quick-workflow/internal/github"
+	"github.com/yiminlab/quick-workflow/internal/ui"
 )
 
 var updateCmd = &cobra.Command{

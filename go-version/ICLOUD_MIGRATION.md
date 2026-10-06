@@ -76,7 +76,7 @@ qkflow config
 1. **安装 qkflow**
    ```bash
    # 下载并安装
-   curl -L https://github.com/Wangggym/quick-workflow/releases/latest/download/qkflow-darwin-arm64 -o qkflow
+   curl -L https://github.com/yiminlab/quick-workflow/releases/latest/download/qkflow-darwin-arm64 -o qkflow
    chmod +x qkflow
    sudo mv qkflow /usr/local/bin/
    ```

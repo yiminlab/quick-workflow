@@ -47,12 +47,12 @@ Choose one of the installation methods:
 
 ```bash
 # macOS (Apple Silicon)
-curl -L https://github.com/Wangggym/quick-workflow/releases/latest/download/qk-darwin-arm64 -o qk
+curl -L https://github.com/yiminlab/quick-workflow/releases/latest/download/qk-darwin-arm64 -o qk
 chmod +x qk
 sudo mv qk /usr/local/bin/
 
 # macOS (Intel)
-curl -L https://github.com/Wangggym/quick-workflow/releases/latest/download/qk-darwin-amd64 -o qk
+curl -L https://github.com/yiminlab/quick-workflow/releases/latest/download/qk-darwin-amd64 -o qk
 chmod +x qk
 sudo mv qk /usr/local/bin/
 
@@ -328,7 +328,7 @@ If you encounter issues during migration:
 1. **Check this guide** - Most common issues are covered above
 2. **Check configuration** - Run `qk config` to verify settings
 3. **Enable debug mode** - Set `export QK_DEBUG=1` before running commands
-4. **Create an issue** - [Open a GitHub issue](https://github.com/Wangggym/quick-workflow/issues)
+4. **Create an issue** - [Open a GitHub issue](https://github.com/yiminlab/quick-workflow/issues)
 5. **Ask for help** - Reach out to the maintainer
 
 ## 📝 Rollback Plan

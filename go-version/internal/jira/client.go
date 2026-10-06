@@ -6,7 +6,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Wangggym/quick-workflow/pkg/config"
+	"github.com/yiminlab/quick-workflow/pkg/config"
 	jira "github.com/andygrunwald/go-jira"
 )
 

@@ -6,7 +6,7 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/Wangggym/quick-workflow/internal/utils"
+	"github.com/yiminlab/quick-workflow/internal/utils"
 )
 
 // Logger handles watch daemon logging

@@ -4,33 +4,33 @@
 
 ### 方式 1: 下载预编译二进制 (推荐)
 
-访问 [Releases 页面](https://github.com/Wangggym/quick-workflow/releases) 下载适合你系统的版本：
+访问 [Releases 页面](https://github.com/yiminlab/quick-workflow/releases) 下载适合你系统的版本：
 
 ```bash
 # macOS Apple Silicon (M1/M2/M3)
-curl -L https://github.com/Wangggym/quick-workflow/releases/download/v1.0.0/qkflow-darwin-arm64 -o qkflow
+curl -L https://github.com/yiminlab/quick-workflow/releases/download/v1.0.0/qkflow-darwin-arm64 -o qkflow
 chmod +x qkflow
 sudo mv qkflow /usr/local/bin/
 
 # macOS Intel
-curl -L https://github.com/Wangggym/quick-workflow/releases/download/v1.0.0/qkflow-darwin-amd64 -o qkflow
+curl -L https://github.com/yiminlab/quick-workflow/releases/download/v1.0.0/qkflow-darwin-amd64 -o qkflow
 chmod +x qkflow
 sudo mv qkflow /usr/local/bin/
 
 # Linux
-curl -L https://github.com/Wangggym/quick-workflow/releases/download/v1.0.0/qkflow-linux-amd64 -o qkflow
+curl -L https://github.com/yiminlab/quick-workflow/releases/download/v1.0.0/qkflow-linux-amd64 -o qkflow
 chmod +x qkflow
 sudo mv qkflow /usr/local/bin/
 
 # Windows (PowerShell)
-Invoke-WebRequest -Uri https://github.com/Wangggym/quick-workflow/releases/download/v1.0.0/qkflow-windows-amd64.exe -OutFile qkflow.exe
+Invoke-WebRequest -Uri https://github.com/yiminlab/quick-workflow/releases/download/v1.0.0/qkflow-windows-amd64.exe -OutFile qkflow.exe
 # 将 qkflow.exe 移动到 PATH 中的目录
 ```
 
 ### 方式 2: 从源码构建
 
 ```bash
-git clone https://github.com/Wangggym/quick-workflow.git
+git clone https://github.com/yiminlab/quick-workflow.git
 cd quick-workflow/go-version
 make gen      # 初始化依赖
 make build    # 构建
@@ -222,15 +222,15 @@ export DEEPSEEK_API_KEY=your_deepseek_key  # 可选
 
 ## 🆘 获取帮助
 
-- 遇到问题？查看 [Issues](https://github.com/Wangggym/quick-workflow/issues)
-- 想要新功能？提交 [Feature Request](https://github.com/Wangggym/quick-workflow/issues/new)
+- 遇到问题？查看 [Issues](https://github.com/yiminlab/quick-workflow/issues)
+- 想要新功能？提交 [Feature Request](https://github.com/yiminlab/quick-workflow/issues/new)
 - 贡献代码？查看 [CONTRIBUTING.md](CONTRIBUTING.md)
 
 ## 🎉 开始使用
 
 ```bash
 # 安装
-curl -L https://github.com/Wangggym/quick-workflow/releases/latest/download/qkflow-darwin-arm64 -o qkflow
+curl -L https://github.com/yiminlab/quick-workflow/releases/latest/download/qkflow-darwin-arm64 -o qkflow
 chmod +x qkflow
 sudo mv qkflow /usr/local/bin/
 

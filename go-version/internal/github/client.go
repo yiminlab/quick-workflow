@@ -6,8 +6,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/Wangggym/quick-workflow/pkg/config"
 	"github.com/google/go-github/v57/github"
+	"github.com/yiminlab/quick-workflow/pkg/config"
 	"golang.org/x/oauth2"
 )
 

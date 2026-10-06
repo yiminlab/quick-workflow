@@ -8,7 +8,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/Wangggym/quick-workflow/pkg/config"
+	"github.com/yiminlab/quick-workflow/pkg/config"
 )
 
 // Exporter handles exporting Jira issues to files

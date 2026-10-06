@@ -40,7 +40,7 @@ brew install jq
 
 2. Clone the repository:
 ```shell
-gh repo clone Wangggym/quick-workflow
+gh repo clone yiminlab/quick-workflow
 ```
 
 3. Navigate to the shell-version directory and run the installation script:

@@ -7,13 +7,13 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/Wangggym/quick-workflow/internal/github"
-	"github.com/Wangggym/quick-workflow/internal/jira"
-	"github.com/Wangggym/quick-workflow/internal/ui"
-	"github.com/Wangggym/quick-workflow/internal/utils"
-	"github.com/Wangggym/quick-workflow/internal/watcher"
-	"github.com/Wangggym/quick-workflow/pkg/config"
 	"github.com/spf13/cobra"
+	"github.com/yiminlab/quick-workflow/internal/github"
+	"github.com/yiminlab/quick-workflow/internal/jira"
+	"github.com/yiminlab/quick-workflow/internal/ui"
+	"github.com/yiminlab/quick-workflow/internal/utils"
+	"github.com/yiminlab/quick-workflow/internal/watcher"
+	"github.com/yiminlab/quick-workflow/pkg/config"
 )
 
 var watchCmd = &cobra.Command{

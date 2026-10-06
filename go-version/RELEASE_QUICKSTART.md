@@ -53,10 +53,10 @@ git tag -a vX.Y.Z -m "Release vX.Y.Z"
 git push origin vX.Y.Z
 
 # ✅ 查看 GitHub Actions
-# https://github.com/Wangggym/quick-workflow/actions
+# https://github.com/yiminlab/quick-workflow/actions
 
 # ✅ 验证 Release
-# https://github.com/Wangggym/quick-workflow/releases
+# https://github.com/yiminlab/quick-workflow/releases
 ```
 
 ## 🎯 版本号规则
@@ -97,8 +97,8 @@ make help
 
 ## 🔍 查看构建状态
 
-- Actions: https://github.com/Wangggym/quick-workflow/actions
-- Releases: https://github.com/Wangggym/quick-workflow/releases
+- Actions: https://github.com/yiminlab/quick-workflow/actions
+- Releases: https://github.com/yiminlab/quick-workflow/releases
 
 ## 💡 最佳实践
 

@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"path/filepath"
 
-	"github.com/Wangggym/quick-workflow/internal/utils"
 	"github.com/spf13/viper"
+	"github.com/yiminlab/quick-workflow/internal/utils"
 )
 
 // Config holds all configuration for the application
